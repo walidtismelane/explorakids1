@@ -1,0 +1,263 @@
+import React, { useState } from "react";
+
+// صفحة React جاهزة للاستخدام — Market Kids (بالعربية)
+// تعتمد على Tailwind CSS (مفترَض مضاف في المشروع)
+// استخدم هذا المكوّن في تطبيق React (مثلاً App.jsx) أو كوحدة مستقلة.
+
+export default function MarketKids() {
+  const [cart, setCart] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showContactSuccess, setShowContactSuccess] = useState(false);
+
+  const products = [
+    {
+      id: 1,
+      title: "لعبة تعليمية مرحة",
+      price: 1990,
+      category: "ألعاب",
+      img: "https://images.unsplash.com/photo-1583511655820-8c5b9b4b1c2d?w=800&q=80",
+      desc: "لعبة مناسبة للأطفال من 3-7 سنوات. تُطوِّر المهارات الحسية والحركية."
+    },
+    {
+      id: 2,
+      title: "قميص أطفال ناعم",
+      price: 2490,
+      category: "ملابس",
+      img: "https://images.unsplash.com/photo-1542060748-7f5b6a2159f3?w=800&q=80",
+      desc: "قميص قطن 100%، متوفر بمقاسات متعددة."
+    },
+    {
+      id: 3,
+      title: "شنطة مدرسية ملونة",
+      price: 3990,
+      category: "لوازم مدرسية",
+      img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80",
+      desc: "شنطة متينة بمقصورات متعددة ومناسبة للمدرسة."
+    },
+    {
+      id: 4,
+      title: "حقيبة رعاية رضّع",
+      price: 3290,
+      category: "رعاية الرضع",
+      img: "https://images.unsplash.com/photo-1520975681917-3b5d8f5b8f8b?w=800&q=80",
+      desc: "حقيبة تحتوي على جيوب معزولة وحامل للرضّاعة."
+    }
+  ];
+
+  const addToCart = (p) => {
+    setCart((prev) => [...prev, p]);
+  };
+
+  const removeFromCart = (index) => {
+    setCart((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const subtotal = cart.reduce((s, p) => s + p.price, 0);
+
+  const submitContact = (e) => {
+    e.preventDefault();
+    setShowContactSuccess(true);
+    setTimeout(() => setShowContactSuccess(false), 4000);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-800" dir="rtl">
+      {/* Header */}
+      <header className="container mx-auto p-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-full bg-yellow-300 flex items-center justify-center shadow-lg">
+            <span className="font-bold text-lg">MK</span>
+          </div>
+          <div>
+            <h1 className="text-xl font-bold">Market Kids</h1>
+            <p className="text-sm text-gray-600">متجر الأطفال العصري</p>
+          </div>
+        </div>
+
+        <nav className="hidden md:flex items-center gap-6">
+          <a href="#home" className="hover:underline">الرئيسية</a>
+          <a href="#products" className="hover:underline">المنتجات</a>
+          <a href="#about" className="hover:underline">من نحن</a>
+          <a href="#contact" className="hover:underline">تواصل معنا</a>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow" onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })}>تسوق الآن</button>
+        </nav>
+
+        {/* Cart icon */}
+        <div className="relative">
+          <button className="p-2 rounded-full bg-white shadow" onClick={() => window.scrollTo({ top: 1200, behavior: 'smooth' })} aria-label="سلة التسوق">
+            🛒
+          </button>
+          {cart.length > 0 && (
+            <span className="absolute -top-1 -left-1 bg-red-500 text-white text-xs rounded-full px-2">{cart.length}</span>
+          )}
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section id="home" className="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center gap-8">
+        <div className="flex-1">
+          <h2 className="text-3xl md:text-4xl font-extrabold">مرحبًا بك في <span className="text-yellow-400">Market Kids</span>!</h2>
+          <p className="mt-4 text-lg text-gray-600">حيث يجتمع المرح مع الأناقة لأطفالك. اكتشف تشكيلتنا المتنوعة من الألعاب، الملابس، ولوازم المدرسة.</p>
+          <div className="mt-6 flex gap-3">
+            <a href="#products" className="bg-blue-500 text-white px-5 py-3 rounded-lg shadow">اكتشف الآن</a>
+            <a href="#contact" className="bg-white border border-gray-200 px-5 py-3 rounded-lg">تواصل معنا</a>
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="p-4 bg-white rounded-lg shadow text-center">
+              <div className="text-2xl">🧸</div>
+              <p className="mt-2">ألعاب</p>
+            </div>
+            <div className="p-4 bg-white rounded-lg shadow text-center">
+              <div className="text-2xl">👕</div>
+              <p className="mt-2">ملابس</p>
+            </div>
+            <div className="p-4 bg-white rounded-lg shadow text-center">
+              <div className="text-2xl">🎒</div>
+              <p className="mt-2">لوازم مدرسية</p>
+            </div>
+            <div className="p-4 bg-white rounded-lg shadow text-center">
+              <div className="text-2xl">🍼</div>
+              <p className="mt-2">رعاية الرضع</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex-1">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1000&q=80" alt="أطفال يلعبون" className="rounded-xl shadow-lg w-full object-cover max-h-96" />
+        </div>
+      </section>
+
+      {/* Products */}
+      <section id="products" className="container mx-auto px-4 py-12">
+        <h3 className="text-2xl font-bold">المنتجات المميزة</h3>
+        <p className="text-gray-600 mt-2">اختر من فئاتنا المميزة أو اضغط للاطلاع على تفاصيل المنتج.</p>
+
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {products.map((p) => (
+            <article key={p.id} className="bg-white rounded-lg shadow overflow-hidden flex flex-col">
+              <img src={p.img} alt={p.title} className="w-full h-40 object-cover" />
+              <div className="p-4 flex-1 flex flex-col">
+                <h4 className="font-semibold">{p.title}</h4>
+                <p className="text-sm text-gray-500 mt-1 flex-1">{p.desc}</p>
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="font-bold">{p.price} دج</div>
+                  <div className="flex gap-2">
+                    <button onClick={() => setSelectedProduct(p)} className="text-sm px-3 py-1 border rounded">تفاصيل</button>
+                    <button onClick={() => addToCart(p)} className="text-sm px-3 py-1 bg-yellow-400 rounded shadow">أضف للسلة</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Offers */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="bg-blue-600 text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between">
+          <div>
+            <h4 className="text-xl font-bold">عرض خاص: اشترِ لعبتين واحصل على الثالثة مجانًا!</h4>
+            <p className="mt-2">العرض ساري لفترة محدودة.</p>
+          </div>
+          <div className="mt-4 md:mt-0 text-center">
+            <div className="text-2xl font-bold">02 : 14 : 36</div>
+            <p className="text-sm">الساعة : دقائق : ثواني</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="container mx-auto px-4 py-8">
+        <h3 className="text-2xl font-bold">آراء العملاء</h3>
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-white p-4 rounded shadow">
+            <p>"خدمة ممتازة والمنتجات ذات جودة عالية. طفلي يحب لعبته الجديدة!"</p>
+            <div className="mt-3 text-sm text-gray-500">— فاطمة، الجزائر</div>
+          </div>
+          <div className="bg-white p-4 rounded shadow">
+            <p>"التغليف كان رائعًا والتوصيل جاء بسرعة."</p>
+            <div className="mt-3 text-sm text-gray-500">— أمين، وهران</div>
+          </div>
+          <div className="bg-white p-4 rounded shadow">
+            <p>"أنصح بالمتجر لكل من يبحث عن منتجات أطفال بجودة وسعر مناسب."</p>
+            <div className="mt-3 text-sm text-gray-500">— ليلى، عنابة</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="container mx-auto px-4 py-8">
+        <h3 className="text-2xl font-bold">تواصل معنا</h3>
+        <p className="text-gray-600 mt-2">للاستفسارات أو الطلبات بالجملة، أرسل لنا رسالة أو اضغط على زر الواتساب.</p>
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={submitContact} className="bg-white p-6 rounded shadow">
+            <label className="block">الاسم</label>
+            <input required className="w-full mt-1 p-2 border rounded" />
+            <label className="block mt-3">البريد الإلكتروني</label>
+            <input type="email" required className="w-full mt-1 p-2 border rounded" />
+            <label className="block mt-3">الرسالة</label>
+            <textarea required className="w-full mt-1 p-2 border rounded h-28" />
+            <div className="mt-4 flex gap-3">
+              <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">إرسال</button>
+              <a href="https://wa.me/213xxxxxxxx" target="_blank" rel="noreferrer" className="bg-green-500 text-white px-4 py-2 rounded">واتساب</a>
+            </div>
+            {showContactSuccess && <div className="mt-3 p-2 bg-green-100 text-green-700 rounded">تم إرسال الرسالة بنجاح!</div>}
+          </form>
+
+          <div className="bg-white p-6 rounded shadow flex flex-col justify-center items-start">
+            <h4 className="font-semibold">معلومات التواصل</h4>
+            <p className="mt-2">الهاتف: +213 7X XXX XXXX</p>
+            <p className="mt-1">البريد: info@marketkids.dz</p>
+            <div className="mt-4">متابعونا: 
+              <div className="flex gap-3 mt-2">
+                <a href="#">انستغرام</a>
+                <a href="#">فيسبوك</a>
+                <a href="#">تيك توك</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cart Panel */}
+      <footer className="container mx-auto px-4 py-8">
+        <div className="bg-white rounded-lg shadow p-4 flex flex-col md:flex-row items-center justify-between">
+          <div>
+            <div className="font-semibold">سلة التسوق ({cart.length})</div>
+            <div className="text-sm text-gray-500">المجموع: <span className="font-bold">{subtotal} دج</span></div>
+          </div>
+
+          <div className="mt-4 md:mt-0 flex items-center gap-3">
+            <button className="px-4 py-2 border rounded" onClick={() => setCart([])}>تفريغ السلة</button>
+            <button className="px-4 py-2 bg-yellow-400 rounded shadow">دفع الآن</button>
+          </div>
+        </div>
+
+        <div className="text-center text-gray-500 mt-6">© {new Date().getFullYear()} Market Kids — جميع الحقوق محفوظة</div>
+      </footer>
+
+      {/* Product Modal (بسيط) */}
+      {selectedProduct && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4" onClick={() => setSelectedProduct(null)}>
+          <div className="bg-white max-w-2xl w-full rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="p-4 md:flex gap-4">
+              <img src={selectedProduct.img} alt="" className="w-full md:w-1/2 h-64 object-cover" />
+              <div className="md:flex-1">
+                <h4 className="font-bold text-xl">{selectedProduct.title}</h4>
+                <p className="mt-2 text-gray-600">{selectedProduct.desc}</p>
+                <div className="mt-4 font-bold">{selectedProduct.price} دج</div>
+                <div className="mt-4 flex gap-2">
+                  <button className="px-4 py-2 bg-yellow-400 rounded" onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }}>أضف للسلة</button>
+                  <button className="px-4 py-2 border rounded" onClick={() => setSelectedProduct(null)}>إغلاق</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
