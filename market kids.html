@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorakids | Market Kids</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+    body { background: #f0f8ff; color: #333; line-height: 1.6; }
+
+    /* ================== NAVBAR ================== */
+    header.navbar {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar .logo img { height: 80px; }
+    .navbar nav { display: flex; gap: 20px; align-items: center; }
+    .navbar nav a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
+    .navbar nav a:hover { color: #1e90ff; }
+    .navbar nav .btn {
+      background: #1e90ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .navbar nav .btn:hover { background: #0d6efd; }
+
+    /* ================== HEADER SECTION ================== */
+    .header-section {
+      text-align: center;
+      padding: 80px 20px 30px 20px;
+      background: linear-gradient(135deg, #aee1f9, #fff1c1, #ffc1e3);
+    }
+    .header-section h1 { font-size: 2.8em; color: #1e90ff; margin-bottom: 15px; }
+    .header-section p { font-size: 1.2em; color: #555; max-width: 600px; margin: auto; }
+
+    /* ================== FILTER BUTTONS ================== */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .filters button {
+      background: #fff;
+      border: 2px solid #1e90ff;
+      color: #1e90ff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .filters button.active,
+    .filters button:hover {
+      background: #1e90ff;
+      color: #fff;
+    }
+
+    /* ================== PRODUCTS GRID ================== */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 15px;
+      height: 180px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .product-card h3 { font-size: 1.2em; margin-bottom: 5px; color: #1e90ff; }
+    .product-card p { font-size: 0.95em; margin-bottom: 10px; color: #555; }
+    .product-card button {
+      background: #1e90ff;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .product-card button:hover { background: #0d6efd; }
+
+    /* ================== SPECIAL OFFER ================== */
+    .special-offer {
+      background: #ffe6f0;
+      padding: 20px;
+      text-align: center;
+      margin: 40px 0;
+      border-radius: 15px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .special-offer h3 { color: #ff69b4; font-size: 1.5em; margin-bottom: 10px; }
+    .special-offer p { color: #555; font-size: 1em; }
+
+    /* ================== CTA ================== */
+    .cta {
+      background: #1e90ff;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    .cta h2 { font-size: 2em; margin-bottom: 15px; }
+    .cta a {
+      background: #fff;
+      color: #1e90ff;
+      padding: 15px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .cta a:hover { background: #f0f8ff; }
+
+    @media(max-width:768px){
+      .header-section h1 { font-size: 2.2em; }
+      .cta h2 { font-size: 1.6em; }
+      .navbar nav { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+          <a href="index.html">
+      <img src="images/Explora sans bg.png" alt="Logo"></a>
+    </div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="market kids.html">Market Kids</a>
+      <a href="contact.html">Contact</a>
+      <a href="#demander" class="btn">Demander</a>
+    </nav>
+  </header>
+
+  <!-- HEADER SECTION -->
+  <section class="header-section" id="market-kids">
+    <h1>متجر الاطفال – المرح والتعلم والنمو</h1>
+    <p>اكتشف أحدث مجموعاتنا للأطفال — ألعاب مرحة، وألوان زاهية، ومنتجات تعليمية تساعدهم على النمو والإبداع.</p>
+  </section>
+
+  <!-- FILTER BUTTONS -->
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">الكل</button>
+    <button class="filter-btn" data-category="games">🎲 الألعاب</button>
+    <button class="filter-btn" data-category="school">🎨 اللوازم المدرسية</button>
+    <button class="filter-btn" data-category="clothes">👕 ملابس الأطفال</button>
+    <button class="filter-btn" data-category="education">📚 العاب جماعية</button>
+  </div>
+
+  <!-- PRODUCTS GRID -->
+  <div class="products">
+    <div class="product-card" data-category="games">
+      <img src="images/خشيبات تعلم الرياضيات و الأشكال.jpeg" alt="لعبة تركيب">
+      <h3>خشيبات تعلم الرياضيات و الأشكال</h3>
+      <p>أداة مسلية لتطوير المهارات العقلية.</p>
+      <button onclick="openWhatsApp('لعبة تركيب')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="games">
+      <img src="images/لعبة تعلم نطق الحروف.jpg" alt="لعبة تركيب">
+      <h3> لعبة تعلم نطق الحروف</h3>
+      <p>أداة مسلية لتطوير المهارات العقلية.</p>
+      <button onclick="openWhatsApp('لعبة تركيب')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="games">
+      <img src="images/جسم الانسان.jpeg" alt="لعبة تركيب">
+      <h3>لعبة جسم الانسان</h3>
+      <p>أداة مسلية لتطوير المهارات العقلية.</p>
+      <button onclick="openWhatsApp('لعبة تركيب')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="games">
+      <img src="images/منصة تعلم الحساب.jpeg" alt="لعبة تركيب">
+      <h3>لعبة منصة تعلم الحساب
+</h3>
+      <p>أداة مسلية لتطوير المهارات العقلية.</p>
+      <button onclick="openWhatsApp('لعبة تركيب')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="games">
+      <img src="images/طاقم الماهر.png" alt="لعبة تركيب">
+      <h3> طاقم الماهر</h3>
+      <p>أداة مسلية لتطوير المهارات العقلية.</p>
+      <button onclick="openWhatsApp('لعبة تركيب')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="games">
+      <img src="images/لعبة تحدي الالوان.jpg" alt="لعبة تركيب">
+      <h3>لعبة تحدي الالوان</h3>
+      <p>أداة مسلية لتطوير المهارات العقلية.</p>
+      <button onclick="openWhatsApp('لعبة تركيب')">اطلب عبر واتساب</button>
+    </div>
+
+
+     <div class="product-card" data-category="school">
+      <img src="images/لوحة الكترونية سحرية للكتابة والرسم.jpg" alt="أقلام ألوان">
+      <h3>لوحة الكترونية سحرية للكتابة والرسم</h3>
+      <p>تابلت رسم للكتابة الإبداعية مقاس 8.5 بوصة</p>
+      <button onclick="openWhatsApp('أقلام ألوان')">اطلب عبر واتساب</button>
+    </div>
+     <div class="product-card" data-category="school">
+      <img src="images/حقيبة ظهر مدرسية.jpg" alt="أقلام ألوان">
+      <h3>حقيبة ظهر مدرسية</h3>
+      <p>حقيبة ظهر مدرسية</p>
+      <button onclick="openWhatsApp('أقلام ألوان')">اطلب عبر واتساب</button>
+    </div>
+     <div class="product-card" data-category="school">
+      <img src="images/مجموعة من 18 قلم تلوين.jpg" alt="أقلام ألوان">
+      <h3>أقلام ألوان</h3>
+      <p>مجموعة ألوان زاهية للرسم.</p>
+      <button onclick="openWhatsApp('أقلام ألوان')">اطلب عبر واتساب</button>
+    </div>
+     <div class="product-card" data-category="school">
+      <img src="images/مجموعة من 4 أقلام تحديد مضيئة.jpg" alt="أقلام ألوان">
+      <h3>مجموعة من 4 أقلام تحديد مضيئة</h3>
+      <p>مجموعة ألوان زاهية للرسم.</p>
+      <button onclick="openWhatsApp('أقلام ألوان')">اطلب عبر واتساب</button>
+    </div>
+     <div class="product-card" data-category="school">
+      <img src="images/دفتر دوار A5 مسطر.jpg" alt="أقلام ألوان">
+      <h3>دفتر دوار A5 مسطر</h3>
+      <p>مجموعة الأناقة والإلهام .</p>
+      <button onclick="openWhatsApp('أقلام ألوان')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="clothes">
+      <img src="images/تي شيرت أخضر بطبعة ديزني.png" alt="تيشيرت طفل">
+      <h3>تي شيرت أخضر بطبعة ديزني </h3>
+      <p>ملابس مريحة ومرحة للأطفال.</p>
+      <button onclick="openWhatsApp('تيشيرت طفل')">اطلب عبر واتساب</button>
+    </div>
+     <div class="product-card" data-category="clothes">
+      <img src="images/بدلة نوم سبايدرمان من الصوف الأحمر.png" alt="تيشيرت طفل">
+      <h3> بدلة نوم سبايدرمان من الصوف الأحمر</h3>
+      <p>ملابس مريحة ومرحة للأطفال.</p>
+      <button onclick="openWhatsApp('تيشيرت طفل')">اطلب عبر واتساب</button>
+    </div>
+
+     <div class="product-card" data-category="clothes">
+      <img src="images/سترة خضراء بغطاء للرأس مضادة للماء.png" alt="تيشيرت طفل">
+      <h3>سترة خضراء بغطاء للرأس مضادة للماء </h3>
+      <p>ملابس مريحة ومرحة للأطفال.</p>
+      <button onclick="openWhatsApp('تيشيرت طفل')">اطلب عبر واتساب</button>
+    </div>
+     <div class="product-card" data-category="clothes">
+      <img src="images/Screenshot 2025-11-13 002540.png" alt="تيشيرت طفل">
+      <h3>تي شيرت أبيض/أزرق مطبوع</h3>
+      <p>ملابس مريحة ومرحة للأطفال.</p>
+      <button onclick="openWhatsApp('تيشيرت طفل')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="education">
+      <img src="images/رياس البحر في المنجم ( لعبة استراتيجية ).webp" alt="لوحة تعليمية">
+      <h3>رياس البحر في المنجم ( لعبة استراتيجية )</h3>
+      <p>لتعليم الحروف والأرقام بطريقة ممتعة.</p>
+      <button onclick="openWhatsApp('لوحة تعليمية')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="education">
+      <img src="images/هيا قولها ( لعبة عائلية ).webp" alt="لوحة تعليمية">
+      <h3>هيا قولها ( لعبة عائلية ) </h3>
+      <p>لتعليم الحروف والأرقام بطريقة ممتعة.</p>
+      <button onclick="openWhatsApp('لوحة تعليمية')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="education">
+      <img src="images/لعبة الظل و النصف.webp" alt="لوحة تعليمية">
+      <h3>لعبة الظل و النصف</h3>
+      <p>لتعليم الحروف والأرقام بطريقة ممتعة.</p>
+      <button onclick="openWhatsApp('لوحة تعليمية')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="education">
+      <img src="images/لعبة تحدي الكلمات ( 6 نشاطات في لعبة واحدة ).webp" alt="لوحة تعليمية">
+      <h3>لعبة تحدي الكلمات ( 6 نشاطات في لعبة واحدة ) </h3>
+      <p>لتعليم الحروف والأرقام بطريقة ممتعة.</p>
+      <button onclick="openWhatsApp('لوحة تعليمية')">اطلب عبر واتساب</button>
+    </div>
+    <div class="product-card" data-category="education">
+      <img src="images/عالم قدس (9 نشاطات تعليمية في علبة واحدة ).webp" alt="لوحة تعليمية">
+      <h3>عالم قدس (9 نشاطات تعليمية في علبة واحدة ) </h3>
+      <p>لتعليم الحروف والأرقام بطريقة ممتعة.</p>
+      <button onclick="openWhatsApp('لوحة تعليمية')">اطلب عبر واتساب</button>
+    </div>
+
+
+  </div>
+
+  <!-- SPECIAL OFFER -->
+  <div class="special-offer">
+    <h3>🧸 عرض الأسبوع!</h3>
+    <p>خصم 20% على اللوحات التعليمية! لفترة محدودة.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta" id="demander">
+    <h2>📦 اطلب الآن عبر واتساب واستفد من التوصيل السريع إلى جميع الولايات!</h2>
+    <a href="https://wa.me/+213658879062?text=مرحبا! أريد طلب منتجات من ماركت كيدز" target="_blank">اطلب عبر واتساب</a>
+  </div>
+
+  <script>
+    // FILTER PRODUCTS
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        button.classList.add('active');
+
+        const category = button.dataset.category;
+        productCards.forEach(card => {
+          if(category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // OPEN WHATSAPP WITH PRODUCT NAME
+    function openWhatsApp(productName){
+      const phone = "+213658879062"; // ضع رقمك هنا
+      const text = `مرحبا! أريد طلب: ${productName}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+<footer class="modern-footer">
+  <div class="footer-content">
+    <!-- Logo and description -->
+    <div class="footer-section about">
+      <img src="images/Explora sans bg.png" alt="Company Logo" class="footer-logo">
+<p>Un programme complet d’ateliers interactifs visant à développer les compétences des enfants et à leur faire découvrir divers métiers à travers des activités éducatives ludiques et pratiques dans des domaines tels que l’agriculture, l’ingénierie, l’informatique, la médecine, les arts et le sport.</p>
+
+</p>
+    </div>
+
+    <!-- Quick Links -->
+<div class="footer-section links">
+  <h4>Liens rapides</h4>
+  <ul>
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">Nos ateliers</a></li>
+    <li><a href="#">MARKET KIDS</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+    <!-- Social Media -->
+    <div class="footer-section social">
+<h4>Suivez-nous</h4>
+<!-- Font Awesome CDN (ضعه في <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- Icons -->
+<div class="social-icons">
+  <a href="https://www.facebook.com/share/16SxKivrhh/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.tiktok.com/@explora.kids2?_t=ZS-8xmiFOrIiO8&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com/explora_kids.1?igsh=MWhmNWZ2NHJ6dTMzMw==" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+<style>
+    .social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  font-size: 20px;
+  color: #444;
+  text-decoration: none;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+</style>
+      </div>
+
+	<ul class="gtco-quick-contact">
+			        <h4>اتصل بنا </h4>
+
+		<li><a href="#"><i class="icon-phone"></i> +213 562 50 40 51</a></li>
+		<li><a href="#"><i class="icon-mail2"></i> explorakids31@gmail.com</a></li>
+		<li><a href="#"><i class="icon-chat"></i>  we come to you Anywhere in algeria </a></li>
+	</ul>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+						<small class="block">&copy; 2025. All Rights Reserved . Designed by <a href="https://walidtismelane.github.io/WALID-TISMELANE-PORTFOLIO/" target="_blank">Walid Tismelane</a></small> 
+  </div>
+</footer>
+<style>
+.modern-footer {
+  background-color: #f9f9f9;
+  padding: 40px 20px 20px;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 1px solid #eaeaea;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #555;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #007bff;
+}
+
+.social-icons a {
+  color: #555;
+  margin-right: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #999;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
+}
+
+</style>
+</body>
+</html>

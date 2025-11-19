@@ -1,0 +1,553 @@
+<!-- 🌟 Explorakids - Nos Ateliers Modern Page (Complet et Corrigé) 🌟 -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorakids | Nos Ateliers</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+      :root{--accent1:#0077ff;--accent2:#00c6ff;--muted:#6b7280}
+      body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg,#f7fbff 0%, #fbfdff 100%);} 
+      .card{background:white;border-radius:12px;box-shadow:0 6px 20px rgba(11,35,72,0.06);overflow:hidden;transition:transform .35s ease,box-shadow .35s ease}
+      .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(11,35,72,0.12)}
+      .gradient-text{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+      .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+      .reveal.revealed{opacity:1;transform:none}
+      .nav-backdrop{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+      .modal-backdrop{background:rgba(2,6,23,0.6)}
+      .rtl{direction:rtl}
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="fixed w-full z-40 top-0 left-0 nav-backdrop bg-white/80">
+      <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+         <!-- LOGO -->
+    <a href="index.html">
+      <img src="images/Explora sans bg.png" alt="Explorakids Logo" class="w-20 h-auto object-contain">
+    </a>
+
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="text-gray-700 hover:text-blue-600">Accueil</a>
+          <a href="market kids.html" class="text-gray-700 hover:text-blue-600">Market Kids</a>
+            <a href="market kids.html" class="text-gray-700 hover:text-blue-600">Nos Atelies</a>
+          <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+          <a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700">Demander</a>
+        </nav>
+        <div class="md:hidden">
+          <button id="menuBtn" class="p-2 rounded-md border border-gray-200 bg-white">☰</button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden px-6 pb-6">
+        <a href="index.html" class="block py-2">Accueil</a>
+        <a href="market kids.html" class="block py-2">Market Kids</a>
+        <a href="nos atelies.html" class="block py-2">Nos Atelier</a>
+        <a href="contact.html" class="block py-2">Contact</a>
+
+        <a href="index.html#demande-service" class="block py-2">Demander</a>
+      </div>
+    </header>
+
+    <main class="pt-28">
+      <!-- HERO -->
+      <section class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h1 class="text-4xl font-extrabold">Nos Ateliers & Services <span class="gradient-text">Explorakids</span></h1>
+            <p class="text-gray-600 mt-4">Ateliers éducatifs pour enfants — science, art, sport, technologie et bien plus. Clique sur "Demander" sous chaque atelier pour réserver.</p>
+            <div class="mt-6 flex gap-3">
+              <a href="#ateliers" class="px-5 py-3 bg-blue-600 text-white rounded-lg shadow">Voir les ateliers</a>
+              <a href="#evenements" class="px-5 py-3 border border-gray-200 rounded-lg">Nos événements</a>
+            </div>
+          </div>
+          <div>
+            <div class="card p-6 flex items-center gap-4">
+              <img src="images/khiyata.jpg" alt="kids" class="w-36 h-28 object-cover rounded-lg">
+              <div>
+                <h3 class="font-semibold">Atelier du mois</h3>
+                <p class="text-gray-600 text-sm mt-1">Robotique: initiation à la construction et à la programmation de petits robots éducatifs.</p>
+                <div class="mt-3"><a href="index.html#demande-service" class="text-blue-600 font-semibold">Demandez maintenant →</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ATELIERS -->
+      <section id="ateliers" class="max-w-6xl mx-auto px-6 py-10">
+        <h2 class="text-3xl font-bold mb-6">Thématiques Ateliers / ورش تعليمية متخصصة</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+  <!-- Agriculture -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-green-100 flex items-center justify-center">🌱</div>
+      <div>
+        <h3 class="font-semibold text-xl">Agriculture / الزراعة 🌱</h3>
+        <p class="text-gray-700 mt-2">Initiation à l'agriculture urbaine et aux techniques de jardinage écologique. Les enfants apprennent à cultiver leurs propres légumes et comprennent l'importance de la nature.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الزراعة: تعليم أساسيات الزراعة الحضرية وتقنيات البستنة البيئية المستدامة .يتعلم الأطفال زراعة خضرواتهم الخاصة .ويفهمون أهمية الطبيعة والمحافظة عليها</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Architecture -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-yellow-100 flex items-center justify-center">🏗️</div>
+      <div>
+        <h3 class="font-semibold text-xl">Architecture / الهندسة المعمارية 🏗️</h3>
+        <p class="text-gray-700 mt-2">Découverte des principes de construction et de design architectural. Création de maquettes et exploration des différents styles architecturaux à travers le monde.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الهندسة المعمارية: اكتشاف مبادئ البناء والتصميم المعماري من خلال أنشطة تفاعلية ممتعة .إنشاء المجسمات .واستكشاف الأنماط المعمارية المختلفة حول العالم</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Artisanat -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-amber-100 flex items-center justify-center">🎨</div>
+      <div>
+        <h3 class="font-semibold text-xl">Artisanat / الحرف اليدوية 🎨</h3>
+        <p class="text-gray-700 mt-2">Développement de la créativité à travers diverses techniques artisanales traditionnelles. Apprentissage du travail manuel et valorisation du patrimoine culturel local.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الحرف اليدوية: تنمية الإبداع من خلال تقنيات الحرف التقليدية المتنوعة والأصيلة .تعلم العمل اليدوي وتقدير التراث الثقافي المحلي والعالمي</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Chimie et Physique -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-indigo-100 flex items-center justify-center">🧪</div>
+      <div>
+        <h3 class="font-semibold text-xl">Chimie et Physique / الكيمياء والفيزياء 🧪</h3>
+        <p class="text-gray-700 mt-2">Expériences ludiques pour comprendre les phénomènes scientifiques du quotidien. Éveil à la curiosité scientifique à travers des manipulations sécurisées et amusantes.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الكيمياء والفيزياء: تجارب تعليمية ممتعة لفهم الظواهر العلمية في الحياة اليومية .إثارة الفضول العلمي من خلال التجارب الآمنة والمسلية للأطفال</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Couture -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-pink-100 flex items-center justify-center">✂️</div>
+      <div>
+        <h3 class="font-semibold text-xl">Couture / الخياطة ✂️</h3>
+        <p class="text-gray-700 mt-2">Apprentissage des techniques de base de la couture et du stylisme. Développement de la motricité fine et création de vêtements personnalisés.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الخياطة: تعلم تقنيات الخياطة الأساسية وأسس التصميم والأزياء العملية .تطوير المهارات الحركية الدقيقة وإنتاج ملابس مخصصة وفريدة</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Cuisine -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-amber-50 flex items-center justify-center">🍳</div>
+      <div>
+        <h3 class="font-semibold text-xl">Cuisine / الطبخ 🍳‍👨</h3>
+        <p class="text-gray-700 mt-2">Initiation à l'art culinaire et aux traditions gastronomiques diverses. Apprentissage de l'équilibre nutritionnel et des bonnes pratiques d'hygiène alimentaire.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الطبخ: تعلم فن الطهي والتقاليد الغذائية المتنوعة من مختلف الثقافات .فهم التوازن الغذائي والممارسات الصحية السليمة في إعداد الطعام</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Dessin -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-violet-100 flex items-center justify-center">🎭</div>
+      <div>
+        <h3 class="font-semibold text-xl">Dessin / الرسم 🎭</h3>
+        <p class="text-gray-700 mt-2">Exploration des techniques artistiques et développement de l'expression créative. Maîtrise des outils de dessin et découverte de différents styles artistiques.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الرسم: استكشاف التقنيات الفنية وتطوير التعبير الإبداعي والخيال الفني .إتقان أدوات الرسم واكتشاف الأساليب الفنية المختلفة عبر التاريخ</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Informatique -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-sky-100 flex items-center justify-center">💻</div>
+      <div>
+        <h3 class="font-semibold text-xl">Informatique / المعلوماتية 💻</h3>
+        <p class="text-gray-700 mt-2">Introduction à la programmation et aux outils numériques adaptés aux enfants. Développement de la logique et préparation aux métiers du futur digital.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">المعلوماتية: تعلم أساسيات البرمجة والأدوات الرقمية المناسبة للأطفال والمبتدئين .تنمية التفكير المنطقي والإعداد لمهن المستقبل الرقمي والتكنولوجي</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Journalisme -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-rose-50 flex items-center justify-center">📰</div>
+      <div>
+        <h3 class="font-semibold text-xl">Journalisme / الصحافة 📰</h3>
+        <p class="text-gray-700 mt-2">Formation aux techniques de communication et de recherche d'information. Développement de l'esprit critique et apprentissage de la rédaction journalistique.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الصحافة: تدريب على تقنيات التواصل والبحث عن المعلومات والأخبار الصحيحة .تنمية الفكر النقدي وتعلم كتابة المقالات الصحفية والتقارير الإعلامية</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Justice -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-gray-100 flex items-center justify-center">⚖️</div>
+      <div>
+        <h3 class="font-semibold text-xl">Justice / العدالة ⚖️</h3>
+        <p class="text-gray-700 mt-2">Sensibilisation aux droits et devoirs civiques à travers des jeux de rôle. Compréhension du système judiciaire et promotion des valeurs de justice.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">العدالة: التوعية بالحقوق والواجبات المدنية من خلال الألعاب التعليمية التفاعلية .فهم النظام القضائي وترسيخ قيم العدالة .والإنصاف في المجتمع</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Pompiers -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-red-100 flex items-center justify-center">🚒</div>
+      <div>
+        <h3 class="font-semibold text-xl">Pompiers / رجال الإطفاء 🚒</h3>
+        <p class="text-gray-700 mt-2">Apprentissage des gestes de premiers secours et de prévention des risques. Sensibilisation à la sécurité et développement de l'esprit d'entraide.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">رجال الإطفاء: تعلم الإسعافات الأولية وطرق الوقاية من المخاطر والحوادث المنزلية .التوعية بأهمية السلامة وتنمية روح التعاون والمساعدة المتبادلة</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Robotique -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-cyan-100 flex items-center justify-center">🤖</div>
+      <div>
+        <h3 class="font-semibold text-xl">Robotique / الروبوتيك 🤖</h3>
+        <p class="text-gray-700 mt-2">Construction et programmation de robots éducatifs adaptés à l'âge. Initiation à l'ingénierie et aux technologies de l'avenir.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الروبوتيك: بناء وبرمجة الروبوتات التعليمية المناسبة لكل فئة عمرية ومستوى تعليمي .التعرف على الهندسة وتقنيات المستقبل والذكاء الاصطناعي البسيط</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Santé Publique -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-lime-50 flex items-center justify-center">🏥</div>
+      <div>
+        <h3 class="font-semibold text-xl">Santé Publique / الصحة العامة 🏥</h3>
+        <p class="text-gray-700 mt-2">Education à l'hygiène, à la prévention et aux gestes santé essentiels. Sensibilisation aux enjeux de santé publique et promotion du bien-être.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الصحة العامة: تعليم النظافة والوقاية والسلوكيات الصحية الأساسية للحياة اليومية .التوعية بقضايا الصحة العامة وتعزيز الرفاهية والعيش الصحي</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Sport -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-emerald-50 flex items-center justify-center">⚽</div>
+      <div>
+        <h3 class="font-semibold text-xl">Sport / الرياضة ⚽</h3>
+        <p class="text-gray-700 mt-2">Pratique d'activités sportives variées pour le développement physique et social. Apprentissage de l'esprit d'équipe et des valeurs du fair-play.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الرياضة: ممارسة أنشطة رياضية متنوعة للتطوير الجسدي والاجتماعي الصحيح .تعلم روح الفريق وقيم اللعب النظيف .والتنافس الشريف البناء</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Vétérinaire -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-rose-100 flex items-center justify-center">🐕</div>
+      <div>
+        <h3 class="font-semibold text-xl">Vétérinaire / الطب البيطري 🐕</h3>
+        <p class="text-gray-700 mt-2">Découverte du monde animal et des soins aux animaux domestiques. Développement de l'empathie et sensibilisation au bien-être animal.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الطب البيطري: اكتشاف عالم الحيوانات وتعلم العناية بالحيوانات الأليفة والبرية .تنمية التعاطف والحس بالمسؤولية تجاه رفاهية الحيوانات وحمايتها</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Education -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-slate-50 flex items-center justify-center">📚</div>
+      <div>
+        <h3 class="font-semibold text-xl">Éducation / التعليم 📚</h3>
+        <p class="text-gray-700 mt-2">Soutien scolaire personnalisé et méthodes d'apprentissage innovantes. Renforcement des acquis et développement de l'autonomie dans les études.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">التعليم: دعم أكاديمي مخصص وطرق تعلم مبتكرة تناسب كل طالب وقدراته .تعزيز المكتسبات وتطوير الاستقلالية في الدراسة والتحصيل العلمي</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander cet atelier</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Additionnels Services -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-rose-50 flex items-center justify-center">🔧</div>
+      <div>
+        <h3 class="font-semibold text-xl">Services Additionnels / الخدمات الإضافية 🔧</h3>
+        <p class="text-gray-700 mt-2">Activités estivales, cours particuliers, développement personnel, enseignement des langues, sorties éducatives, événements familiaux, bibliothèque numérique, compétitions et gardes d'enfants.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">الخدمات الإضافية: أنشطة صيفية، دروس خصوصية، تنمية شخصية، تعليم اللغات، رحلات تعليمية، فعاليات عائلية، مكتبة رقمية، مسابقات وحضانة أطفال وخدمات منزلية</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Demander un service</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Photographie d'Enfants -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-stone-50 flex items-center justify-center">📸</div>
+      <div>
+        <h3 class="font-semibold text-xl">Photographie d'Enfants / مصورة أطفال 📸</h3>
+        <p class="text-gray-700 mt-2">Séances photo professionnelles pour immortaliser les moments précieux de l'enfance. Création de souvenirs artistiques mettant en valeur la personnalité de chaque enfant.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">مصورة أطفال: جلسات تصوير احترافية لتخليد اللحظات الثمينة من مرحلة الطفولة الجميلة .إنتاج ذكريات فنية تبرز الشخصية الفريدة لكل طفل</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Réserver une séance</a></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Incubateur -->
+  <article class="card p-5 reveal">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-lg bg-emerald-100 flex items-center justify-center">🚀</div>
+      <div>
+        <h3 class="font-semibold text-xl">Incubateur Explorakids / حاضنة إكسبلوراكيدز 🚀</h3>
+        <p class="text-gray-700 mt-2">Programme d'incubation jeunesse (jusqu'à 16 ans) : accompagnement des jeunes talents, formation au leadership, développement de compétences digitales et concrétisation d'idées créatives.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">برنامج الحاضنة للشباب: مرافقة المواهب الشابة في إنشاء مشاريع مبتكرة وريادية تناسب أعمارهم وقدراتهم .تدريب على القيادة، تطوير المهارات الرقمية وتحقيق الأفكار الإبداعية مع إرشاد مهني متخصص</p>
+        <div class="mt-4"><a href="index.html#demande-service" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Postuler à l'incubateur</a></div>
+      </div>
+    </div>
+  </article>
+
+
+
+
+
+
+        </div>
+        
+      </section>
+      <!-- Section Nos Événements / فعالياتنا -->
+<section class="bg-gray-50 py-16 px-6" id="evenements">
+  <div class="max-w-6xl mx-auto text-center mb-10">
+    <h2 class="text-4xl font-bold text-blue-600 mb-4">Nos Événements</h2>
+    <p class="text-gray-600 text-lg">
+      Découvrez les moments forts d’<span class="font-semibold">ExploraKids</span> à travers nos ateliers, festivals et journées spéciales 🌟
+    </p>
+    <p class="text-gray-600 text-lg mt-2 rtl">
+      اكتشفوا أبرز فعاليات <span class="font-semibold">إكسبلوراكيدز</span> من ورش عمل ومهرجانات وأيام مميزة للأطفال 🌟
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <!-- Événement 1 -->
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+      <img src="images/IMG_2440.JPEG" alt="Atelier Créatif" class="w-full h-56 object-cover">
+      <div class="p-6 text-left">
+        <h3 class="text-xl font-semibold text-blue-600">Pink Move  édition 2024 👩‍🍳</h3>
+        <p class="text-gray-700 mt-2">Les enfants ont participé dans une ambiance colorée et gourmande, découvrant les bases de la cuisine de manière ludique et interactive, dans une atmosphère de joie et de découverte. </p>
+        <p class="text-gray-700 mt-2 rtl text-sm">شارك الأطفال في أجواء مليئة بالألوان والنكهات، حيث تعلموا أساسيات الطبخ بطريقة ممتعة وتفاعلية، وسط أجواء من الفرح والاكتشاف.</p>
+        <div class="mt-4 text-sm text-gray-500 flex justify-between items-center">
+          <span>📅 18/10/2024 &  19/10/2024</span>
+          <span>📍Forêt de Bouchaoui  </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Événement 2 -->
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+      <img src="images/DSC_0159.jpg" alt="Science Day" class="w-full h-56 object-cover">
+      <div class="p-6 text-left">
+        <h3 class="text-xl font-semibold text-blue-600">Pink Move  édition 2025 🎨</h3>
+        <p class="text-gray-700 mt-2">Les enfants ont réalisé des expériences amusantes et découvert la magie des sciences à travers des démonstrations interactives.</p>
+        <p class="text-gray-700 mt-2 rtl text-sm">يوم علمي مميز قام فيه الأطفال بإجراء تجارب ممتعة واستكشاف عالم العلوم من خلال عروض تفاعلية مليئة بالمفاجآت.</p>
+        <div class="mt-4 text-sm text-gray-500 flex justify-between items-center">
+          <span>📅 17/10/2025 &  18/10/2025</span>
+          <span>📍 Parc Sablette</span>
+        </div>
+      </div>
+    </div>
+
+   
+
+  
+</section>
+
+    </main>
+
+    <script>
+      // Menu mobile toggle
+      document.getElementById("menuBtn").addEventListener("click", () => {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      });
+
+      // Animation reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("revealed");
+        });
+      }, {threshold: 0.15});
+      reveals.forEach(el => observer.observe(el));
+    </script>
+    
+<footer class="modern-footer">
+  <div class="footer-content">
+    <!-- Logo and description -->
+    <div class="footer-section about">
+      <img src="images/Explora sans bg.png" alt="Company Logo" class="footer-logo">
+<p>Un programme complet d’ateliers interactifs visant à développer les compétences des enfants et à leur faire découvrir divers métiers à travers des activités éducatives ludiques et pratiques dans des domaines tels que l’agriculture, l’ingénierie, l’informatique, la médecine, les arts et le sport.</p>
+
+</p>
+    </div>
+
+    <!-- Quick Links -->
+<div class="footer-section links">
+  <h4>Liens rapides</h4>
+  <ul>
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">Nos ateliers</a></li>
+    <li><a href="#">MARKET KIDS</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+    <!-- Social Media -->
+    <div class="footer-section social">
+<h4>Suivez-nous</h4>
+<!-- Font Awesome CDN (ضعه في <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- Icons -->
+<div class="social-icons">
+  <a href="https://www.facebook.com/share/16SxKivrhh/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.tiktok.com/@explora.kids2?_t=ZS-8xmiFOrIiO8&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com/explora_kids.1?igsh=MWhmNWZ2NHJ6dTMzMw==" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+<style>
+    .social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  font-size: 20px;
+  color: #444;
+  text-decoration: none;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+</style>
+      </div>
+
+	<ul class="gtco-quick-contact">
+			        <h4>اتصل بنا </h4>
+
+		<li><a href="#"><i class="icon-phone"></i> +213 562 50 40 51</a></li>
+		<li><a href="#"><i class="icon-mail2"></i> explorakids31@gmail.com</a></li>
+		<li><a href="#"><i class="icon-chat"></i>  we come to you Anywhere in algeria </a></li>
+	</ul>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+						<small class="block">&copy; 2025. All Rights Reserved . Designed by <a href="https://walidtismelane.github.io/WALID-TISMELANE-PORTFOLIO/" target="_blank">Walid Tismelane</a></small> 
+  </div>
+</footer>
+<style>
+.modern-footer {
+  background-color: #f9f9f9;
+  padding: 40px 20px 20px;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 1px solid #eaeaea;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #555;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #007bff;
+}
+
+.social-icons a {
+  color: #555;
+  margin-right: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #999;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
+}
+
+</style>
+  </body>
+</html>
