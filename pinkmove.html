@@ -336,11 +336,11 @@
     </div>
     <div class="field"><label>Type de partenariat</label>
       <select name="Type_Partenariat">
-        <option value="Sponsoring">magasins et commerce</option>
-        <option value="Stand">nourrices</option>
-        <option value="Don de produits">prof de sante</option>
-        <option value="Autre">Autre</option>
-      </select>
+  <option value="Magasins et commerce">Magasins et commerce</option>
+  <option value="Nourrices">Nourrices</option>
+  <option value="Professionnels de santé">Professionnels de santé</option>
+  <option value="Autre">Autre</option>
+</select>
     </div>
     <div class="field"><label>Message</label><textarea name="Message" rows="3" placeholder="Décrivez votre proposition"></textarea></div>
 
@@ -357,7 +357,7 @@
     </div>
     <div class="contact">
       <span>EXPLORAKIDS — +213 661 45 66 36</span>
-      <a href="mailto:pinkmovedz@gmail.com">explorakids31@gmail.com</a>
+<a href="mailto:explorakids31@gmail.com">explorakids31@gmail.com</a>
       <a href="https://www.pinkmovedz.com" target="_blank" rel="noopener">www.pinkmovedz.com</a>
     </div>
   </div>
@@ -369,10 +369,7 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // ====== CONFIGURATION ======
-  // Remplacez cette URL par celle de votre déploiement Google Apps Script (Web App).
-  const GOOGLE_SCRIPT_URL = "https://docs.google.com/spreadsheets/d/1zSTo5Nhw0ezy3yCiebvDXjLBiXf8EE6VApJesGP537Y/edit?usp=sharing";
-  // ============================
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzFT3Q130peInXRyn9kGxdcP3Kne060vRG7CcZ9EcPh2UXuCKmWnIx1vo3s5jy_Pg3unQ/exec";
 
   // Tabs
   const tabBtns = document.querySelectorAll('.tab-btn');
@@ -386,7 +383,7 @@
     });
   });
 
-  // Form submission -> Google Sheets via Apps Script Web App
+  // Envoi vers Google Sheets (même méthode que la première inscription)
   document.querySelectorAll('form.panel').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -394,31 +391,26 @@
       const btn = form.querySelector('.submit-btn');
       const originalLabel = btn.textContent;
 
-      if (GOOGLE_SCRIPT_URL.indexOf('PASTE_YOUR') === 0) {
-        msgEl.textContent = "Configuration en attente : ajoutez votre URL Google Apps Script dans le fichier.";
-        msgEl.className = 'form-msg err';
-        return;
-      }
-
       btn.disabled = true;
       btn.textContent = "Envoi...";
       msgEl.textContent = '';
       msgEl.className = 'form-msg';
 
-      const formData = new FormData(form);
-      formData.append('formType', form.dataset.type);
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.formType = form.dataset.type;
 
       try {
         await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          body: formData
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data)
         });
-        msgEl.textContent = "Merci ! Votre inscription a bien été envoyée.";
+        msgEl.textContent = "✅ Merci ! Votre inscription a bien été envoyée.";
         msgEl.className = 'form-msg ok';
         form.reset();
       } catch (err) {
-        msgEl.textContent = "Une erreur est survenue. Merci de réessayer.";
+        msgEl.textContent = "❌ Une erreur est survenue. Merci de réessayer.";
         msgEl.className = 'form-msg err';
       } finally {
         btn.disabled = false;
