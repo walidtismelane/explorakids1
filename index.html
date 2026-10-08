@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
+<!--
+	Traveler by freehtml5.co
+	Twitter: http://twitter.com/fh5co
+	URL: http://freehtml5.co
+-->
 <html>
 	<head>
-	<link rel="icon" src="images/Explora sans bg.png" href="favicon.png">
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Explorakids | Accueil</title>
@@ -48,6 +51,10 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
 	</head>
 	<body>
@@ -56,7 +63,7 @@
 	
 	<div id="page">
 
-
+	
 	<!-- <div class="page-inner"> -->
 	<nav class="gtco-nav" role="navigation">
 		<div class="gtco-container">
@@ -73,8 +80,10 @@
 						<li class="has-dropdown">
 							<a href="nos atelies.html">Nos Ateliers</a>
 						</li> 
-						<li><a href="pinkmove.html">Pink Move</a></li>
 						<li><a href="market kids.html">Market Kids</a></li>
+            						<li><a href="pinkmove.html">Pink Move</a></li>
+
+            
 						<li><a href="contact.html">Contact</a></li>
 					</ul>	
 				</div>
@@ -266,8 +275,8 @@
             <option value="Tipaza">Tipaza</option>
             <option value="Boumerdes">Boumerdes</option>
           </select>
-          <label>Autres Willayas</label>
-          <input type="email" id="email" placeholder="@mail.com">
+          <label>Autres Wilayas</label>
+<input type="text" id="otherWilaya" placeholder="Si votre wilaya n'est pas dans la liste">
          
           <label>Date</label>
           <input type="date" id="date" required>
@@ -325,41 +334,52 @@
       </div>
 
     </div>
-
   </div>
 </section>
-  <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzRAdzBthLafriN1_mv99ASrBrw4s5fJu93iEVj1SoqHemdbKOG--W1l4dIyvtqeNk/exec"; // replace with your Apps Script URL
-    const form = document.getElementById("clientForm");
-    const msg = document.getElementById("message");
+ <script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzRAdzBthLafriN1_mv99ASrBrw4s5fJu93iEVj1SoqHemdbKOG--W1l4dIyvtqeNk/exec";
+  const form = document.getElementById("clientForm");
+  const msg  = document.getElementById("message");
+  const btn  = form.querySelector("button[type='submit']");
 
-    form.addEventListener("submit", e => {
-      e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-      fetch(scriptURL, {
+    const data = {
+      name:        document.getElementById("name").value.trim(),
+      phone:       document.getElementById("phone").value.trim(),
+      email:       document.getElementById("email").value.trim(),
+      children:    document.getElementById("children").value,
+      activity:    document.getElementById("activity").value,
+      wilaya:      document.getElementById("wilaya").value,
+      otherWilaya: document.getElementById("otherWilaya").value.trim(),
+      date:        document.getElementById("date").value
+    };
+
+    btn.disabled = true;
+    msg.innerText = "⏳ Envoi en cours...";
+    msg.style.color = "#555";
+
+    try {
+      await fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify({
-          name: document.getElementById("name").value,
-          phone: document.getElementById("phone").value,
-          email: document.getElementById("email").value,
-          children: document.getElementById("children").value,
-          activity: document.getElementById("activity").value,
-          wilaya: document.getElementById("wilaya").value,
-          date: document.getElementById("date").value
-        })
-      })
-      .then(res => res.text())
-      .then(data => {
-        msg.innerText = "✅ Registration successful!";
-        msg.style.color = "green";
-        form.reset();
-      })
-      .catch(() => {
-        msg.innerText = "❌ Error, please try again.";
-        msg.style.color = "red";
+        mode: "no-cors",              // يتجاوز مشكلة CORS
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data)
       });
-    });
-  </script>
+
+      msg.innerText = "✅ Inscription réussie ! / تم التسجيل بنجاح";
+      msg.style.color = "green";
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      msg.innerText = "❌ Erreur, veuillez réessayer. / حدث خطأ";
+      msg.style.color = "red";
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
 <!-- 🌟 Ateliers les plus populaires Section -->
 <section class="gtco-section">
   <div class="container text-center">
@@ -563,7 +583,7 @@
 <!-- ✨ Scroll Animation -->
 <script>
   const cards = document.querySelectorAll('.fh5co-card-item');
-  const observer = new IntersectionObserver((entries) => {
+  const Observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('show');
     });
