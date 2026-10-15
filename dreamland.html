@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دورة خطوتي الأولى | Explora Kids × Dream Land</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ec4f8b;--pink-l:#ffe3ee;--purple:#8e6ad8;--purple-l:#efe7ff;--yellow:#ffc83d;--yellow-l:#fff4d0;--blue:#4aa8e8;--blue-l:#e2f3ff;--ink:#3b2a4d;--bg:#fff9fc;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#1f1829;--card:#2a2038;--ink:#f6ecff;--pink-l:#4a2438;--purple-l:#33284d;--yellow-l:#4a3f1c;--blue-l:#1d3548}}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Cairo',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:980px;margin:auto;padding:0 18px}
+.hero{text-align:center;padding:48px 18px 56px;background:linear-gradient(180deg,var(--blue-l),var(--bg))}
+.badge{display:inline-block;background:var(--pink-l);color:var(--pink);font-weight:800;padding:4px 16px;border-radius:99px;font-size:14px}
+.hero h1{font-size:clamp(40px,9vw,76px);margin:8px 0 0;font-weight:900;line-height:1.2;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{display:inline-block;margin:14px 0 6px;background:var(--pink-l);padding:8px 24px;border-radius:24px;font-weight:700;font-size:clamp(16px,3.5vw,22px)}
+.collab{font-size:15px;opacity:.85;margin-top:10px}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--pink);color:#fff;font:800 18px 'Cairo',sans-serif;padding:12px 34px;border-radius:99px;text-decoration:none;margin-top:18px;box-shadow:0 6px 0 #c23c71}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #c23c71}
+h2{font-size:clamp(24px,5vw,32px);font-weight:900;margin:44px 0 18px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--card);border-radius:20px;padding:20px;text-align:center;box-shadow:0 4px 14px rgba(120,80,160,.12)}
+.card .ic{font-size:36px}
+.card p{margin:6px 0 0;font-weight:600}
+.c1{background:var(--purple-l)}.c2{background:var(--yellow-l)}.c3{background:var(--blue-l)}.c4{background:var(--pink-l)}
+.who{background:var(--blue-l);border-radius:24px;padding:22px 26px;font-weight:600;font-size:18px;text-align:center}
+.exp .card h3{margin:4px 0;font-size:18px}
+.dur{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+.dur span{background:var(--yellow-l);padding:8px 22px;border-radius:99px;font-weight:800}
+form{background:var(--card);border-radius:26px;padding:26px;box-shadow:0 8px 24px rgba(120,80,160,.16);max-width:640px;margin:auto}
+label{display:block;font-weight:700;margin:14px 0 4px}
+input,select,textarea{width:100%;font:600 16px 'Cairo',sans-serif;padding:11px 14px;border:2px solid var(--purple-l);border-radius:14px;background:var(--bg);color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+#msg{margin-top:14px;font-weight:700;text-align:center}
+.ok{color:#1e9e5a}.err{color:#d8334a}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+nav{position:sticky;top:0;z-index:50;background:var(--card);box-shadow:0 2px 12px rgba(120,80,160,.15)}
+.nb{max-width:980px;margin:auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;color:var(--pink);font-size:20px;text-decoration:none}
+.links{display:flex;gap:4px;flex-wrap:wrap}
+.links a{color:var(--ink);text-decoration:none;font-weight:700;padding:6px 14px;border-radius:99px;font-size:15px}
+.links a:hover,.links a.on{background:var(--pink-l);color:var(--pink)}
+.menu{display:none;background:var(--pink-l);border:0;border-radius:12px;font-size:22px;padding:4px 12px;cursor:pointer;color:var(--ink)}
+@media(max-width:720px){.menu{display:block}.links{display:none;position:absolute;top:100%;inset-inline:0;background:var(--card);flex-direction:column;padding:10px 18px 16px;box-shadow:0 8px 12px rgba(0,0,0,.08)}.links.open{display:flex}}
+.sec p.lead{text-align:center;max-width:640px;margin:0 auto 14px;font-weight:600}
+.soon{display:inline-block;background:var(--yellow-l);padding:4px 14px;border-radius:99px;font-weight:800;font-size:14px;margin-top:8px}
+.ctr{text-align:center}
+footer{text-align:center;padding:36px 18px;opacity:.8;font-size:14px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nb">
+    <a class="logo" href="#home">Explora Kids</a>
+    <button class="menu" id="mb" aria-label="Menu">☰</button>
+    <div class="links" id="lk">
+      <a href="#dreamland">Dream Land</a>
+      <a href="#contact">Contact</a>
+      <a href="#market">Market Kids</a>
+      <a href="#ateliers">Nos ateliers</a>
+       <a href="#home">Accueil</a>
+
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <span class="badge">Explora Kids × Dream Land (أرض الأحلام)</span>
+  <p style="margin:12px 0 0;font-weight:800;color:var(--purple)">دورة</p>
+  <h1>خطوتي الأولى</h1>
+  <div class="sub">دورة للانفصال التدريجي وتوعية نفسية</div>
+  <p class="collab">بالتعاون بين Explora Kids و Dream Land</p>
+  <a class="btn" href="#register">سجّل الآن 🎈</a>
+</header>
+
+<main class="wrap">
+  <h2>💡 ماذا تقدّم الدورة؟</h2>
+  <div class="grid">
+    <div class="card c1"><div class="ic">🧒</div><p>مساعدة الطفل على التكيّف مع بيئة جديدة بسهولة وثقة</p></div>
+    <div class="card c4"><div class="ic">❤️</div><p>تعزيز استقلاليته وشعوره بالأمان</p></div>
+    <div class="card c2"><div class="ic">👫</div><p>أنشطة ترفيهية وتفاعلية لتطوير المهارات الاجتماعية</p></div>
+    <div class="card c3"><div class="ic">🧠</div><p>توعية نفسية للأهل حول مراحل الانفصال التدريجي</p></div>
+  </div>
+
+  <h2>🎯 لمن هذه الدورة؟</h2>
+  <div class="who">للأطفال في مرحلة ما قبل المدرسة أو الأطفال الذين يواجهون صعوبة في الانفصال عن ولي الأمر.</div>
+
+  <h2>💗 متابعة متخصصة طوال الدورة</h2>
+  <div class="grid exp">
+    <div class="card c4"><div class="ic">👩‍👧</div><h3>أخصائية نفسية</h3><p>لتوعية الأمهات ومرافقتهن</p></div>
+    <div class="card c3"><div class="ic">🗣️</div><h3>أخصائية أرطوفونية</h3><p>لمتابعة الطفل</p></div>
+  </div>
+  <div class="dur"><span>📅 مدة الدورة: 4 أيام</span></div>
+
+  <h2 id="register">📝 استمارة التسجيل</h2>
+  <form id="f" novalidate>
+    <label>اسم ولي الأمر *</label>
+    <input name="parent" required>
+    <div class="row">
+      <div><label>رقم الهاتف *</label><input name="phone" type="tel" inputmode="tel" required></div>
+      <div><label>البريد الإلكتروني</label><input name="email" type="email"></div>
+    </div>
+    <div class="row">
+      <div><label>اسم الطفل *</label><input name="child" required></div>
+      <div><label>عمر الطفل *</label>
+        <select name="age" required><option value="">اختر</option><option>أقل من سنتين</option><option>2 – 3 سنوات</option><option>3 – 4 سنوات</option><option>4 – 5 سنوات</option><option>أكثر من 5 سنوات</option></select></div>
+    </div>
+    <label>الولاية</label>
+    <input name="wilaya">
+    <label>ملاحظات (اختياري)</label>
+    <textarea name="notes" rows="3" placeholder="مثال: الطفل يواجه صعوبة في الانفصال عن الأم..."></textarea>
+    <input name="website" tabindex="-1" autocomplete="off" style="display:none">
+    <div style="text-align:center"><button class="btn" type="submit" id="sb">إرسال التسجيل</button></div>
+    <div id="msg"></div>
+  </form>
+
+  <section class="sec" id="ateliers">
+    <h2>🎨 Nos ateliers</h2>
+    <p class="lead">أنشطة تعليمية وترفيهية للأطفال من تنظيم Explora Kids. (عدّل هذه البطاقات بأسماء ورزنامة ورشاتكم)</p>
+    <div class="grid">
+      <div class="card c1"><div class="ic">🎭</div><h3>ورشة 1</h3><p>اكتب هنا وصف الورشة</p></div>
+      <div class="card c2"><div class="ic">🖍️</div><h3>ورشة 2</h3><p>اكتب هنا وصف الورشة</p></div>
+      <div class="card c3"><div class="ic">🧩</div><h3>ورشة 3</h3><p>اكتب هنا وصف الورشة</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="market">
+    <h2>🛍️ Market Kids</h2>
+    <div class="card c4 ctr" style="max-width:640px;margin:auto">
+      <div class="ic">🧸</div>
+      <p>متجر Explora Kids لمنتجات وألعاب الأطفال.</p>
+      <span class="soon">قريبًا</span>
+      <!-- عند جاهزية المتجر: <a class="btn" href="رابط_المتجر">زيارة المتجر</a> -->
+    </div>
+  </section>
+
+  <section class="sec" id="dreamland">
+    <h2>🌈 Dream Land (أرض الأحلام)</h2>
+    <div class="card c3 ctr" style="max-width:640px;margin:auto">
+      <div class="ic">☁️</div>
+      <p>Dream Land شريك Explora Kids في تنظيم دورة «خطوتي الأولى» لمرافقة الأطفال وأوليائهم في أولى خطواتهم نحو الاستقلالية.</p>
+      <a class="btn" href="#register">سجّل في الدورة</a>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <h2>📞 Contact</h2>
+    <div class="grid">
+      <a class="card c4" href="https://wa.me/213664545707" style="text-decoration:none;color:inherit"><div class="ic">💬</div><h3>WhatsApp</h3><p dir="ltr">+213 664 54 57 07</p></a>
+      <!-- أضف هنا بريدًا إلكترونيًا أو إنستغرام أو فيسبوك -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  للاستفسار: <a href="https://wa.me/213664545707" style="color:var(--pink);font-weight:800" dir="ltr">+213 774 14 60 72</a><br>
+  © Explora Kids × Dream Land
+</footer>
+
+<script>
+// ===== الإعدادات =====
+// 1) ضع رابط Google Apps Script (Web App) هنا ليتم حفظ التسجيلات في Google Sheet
+const SCRIPT_URL = "";
+// 2) رقم واتساب (بدون + ولا مسافات). يُستعمل عند عدم وجود SCRIPT_URL أو فشل الإرسال
+const WHATSAPP = "213774146072";
+const COURSE = "دورة خطوتي الأولى";
+
+const lk = document.getElementById('lk');
+document.getElementById('mb').onclick = () => lk.classList.toggle('open');
+lk.querySelectorAll('a').forEach(a => a.onclick = () => lk.classList.remove('open'));
+const secs = [...lk.querySelectorAll('a')].map(a => [a, document.querySelector(a.getAttribute('href'))]);
+addEventListener('scroll', () => {
+  let cur = secs[0];
+  secs.forEach(s => { if (s[1].getBoundingClientRect().top < 120) cur = s; });
+  secs.forEach(s => s[0].classList.toggle('on', s === cur));
+});
+
+const f = document.getElementById('f'), msg = document.getElementById('msg'), sb = document.getElementById('sb');
+function show(t, c){ msg.textContent = t; msg.className = c; }
+
+function openWhatsApp(d){
+  const t = `طلب تسجيل - ${COURSE}%0Aولي الأمر: ${d.parent}%0Aالهاتف: ${d.phone}%0Aالطفل: ${d.child} (${d.age})%0Aالولاية: ${d.wilaya||'-'}%0Aملاحظات: ${d.notes||'-'}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${t}`, '_blank');
+}
+
+f.addEventListener('submit', async e => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(f).entries());
+  if (d.website) return; // anti-spam
+  if (!d.parent.trim() || !d.phone.trim() || !d.child.trim() || !d.age){ show('يرجى ملء الحقول المطلوبة *','err'); return; }
+  sb.disabled = true; show('جارٍ الإرسال...','');
+  if (!SCRIPT_URL){ openWhatsApp(d); show('تم تحويلك إلى واتساب لإتمام التسجيل 💬','ok'); sb.disabled = false; return; }
+  try{
+    const body = new URLSearchParams({...d, course: COURSE, date: new Date().toLocaleString('fr-DZ')});
+    await fetch(SCRIPT_URL, {method:'POST', mode:'no-cors', body});
+    show('تم تسجيلكم بنجاح 🎉 سنتواصل معكم قريبًا','ok'); f.reset();
+  }catch(err){
+    show('تعذّر الإرسال، سيتم تحويلك إلى واتساب','err'); openWhatsApp(d);
+  }
+  sb.disabled = false;
+});
+</script>
+</body>
+</html>
